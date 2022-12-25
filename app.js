@@ -1,5 +1,5 @@
-function hoursIntoSeconds(hour) {
-  return hour * 60 *60
+function isNotZero(num) {
+  return num !== 0
 }
 
-console.log(hoursIntoSeconds(1))
+console.log(isNotZero(1));
