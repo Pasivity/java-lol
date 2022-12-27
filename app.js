@@ -1,11 +1,11 @@
-function getMax(arr) {
-  let max = arr[0];
-  for (let i = 0; i < arr.length; ++i) {
-    if (arr[i] > max) {
-      max = arr[i];
+function converToBoolean(arr) {
+  truthyValue = arr[i]
+  for (let i = 0 ; i > arr.length; ++i){
+    if (arr[i] === true){
+      truthyValue= arr[i]
     }
   }
-  return max;
+  return truthyValue
 }
 
-console.log(getMax([1, 5, 4]));
+console.log(converToBoolean([500, 0, "David", "", []]));
