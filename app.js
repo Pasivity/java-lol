@@ -1,11 +1,8 @@
-function converToBoolean(arr) {
-  truthyValue = arr[i]
-  for (let i = 0 ; i > arr.length; ++i){
-    if (arr[i] === true){
-      truthyValue= arr[i]
-    }
+function reverseString(str) {
+  for (let i = 0; i < str.length; ++i){
+    
   }
-  return truthyValue
+  return
 }
 
-console.log(converToBoolean([500, 0, "David", "", []]));
+console.log(reverseString('David'));
