@@ -1,8 +1,15 @@
-function reverseString(str) {
-  for (let i = 0; i < str.length; ++i){
-    
+function showRating(rating){
+  let ratings = ''
+  for (let i = 0; i < Math.floor(rating); ++i){
+    ratings = ratings +'*'
+    if (i !== Math.floor(rating) - 1){
+      ratings = ratings + ' '
+    }
   }
-  return
+  if (!Number.isInteger(rating)){
+    ratings = ratings + ' .'
+  }
+  return ratings
 }
 
-console.log(reverseString('David'));
+console.log(showRating(4.5))
