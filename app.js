@@ -1,15 +1,13 @@
-function showRating(rating){
-  let ratings = ''
-  for (let i = 0; i < Math.floor(rating); ++i){
-    ratings = ratings +'*'
-    if (i !== Math.floor(rating) - 1){
-      ratings = ratings + ' '
-    }
-  }
-  if (!Number.isInteger(rating)){
-    ratings = ratings + ' .'
-  }
-  return ratings
+async function postsByUser(userId){
+
+const promise = await fetch('https://jsonplaceholder.typicode.com/posts')
+
+const result = await promise.json()
+
+const filterByUserId = result.filter(elem => elem.userId === userId)
+
+console.log(filterByUserId)
+
 }
 
-console.log(showRating(4.5))
+console.log(postsByUser(4))
