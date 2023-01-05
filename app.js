@@ -1,13 +1,9 @@
-async function postsByUser(userId){
-
-const promise = await fetch('https://jsonplaceholder.typicode.com/posts')
-
-const result = await promise.json()
-
-const filterByUserId = result.filter(elem => elem.userId === userId)
-
-console.log(filterByUserId)
-
+function sumOfArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    sum = sum + arr[i];
+  }
+  return sum;
 }
 
-console.log(postsByUser(4))
+console.log(sumOfArray([5, 3, 2, 1, 7]));
