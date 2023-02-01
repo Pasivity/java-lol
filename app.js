@@ -1,9 +1,13 @@
-function sumOfArray(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; ++i) {
-    sum = sum + arr[i];
-  }
-  return sum;
+async function sortLowToHigh() {
+  const promise = await fetch("https://jsonplaceholder.typicode.com/todos");
+
+  const result = await promise.json();
+
+  const firstSix = result
+    .filter((elem) => elem.completed === false)
+    .slice(0, 6);
+
+  console.log(firstSix);
 }
 
-console.log(sumOfArray([5, 3, 2, 1, 7]));
+sortLowToHigh(4);
