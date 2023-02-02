@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="/app.js" defer></script>
+    <script src="/index.js" defer></script>
     <script
       src="https://kit.fontawesome.com/e010debeae.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("4H3bxbXV_zEacL5CV");
+   })();
+    </script>
   </head>
   <body>
     <section id="landing-page">
@@ -33,14 +41,14 @@
               >Projects</a
             >
           </li>
-          <li class="nav__link">
+          <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Contact</a
             >
           </li>
-          <li class="nav__link click">
+          <li class="nav__link click" onclick="toggleContrast()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
@@ -54,11 +62,10 @@
           <h1 class="title">Hey</h1>
           <h1 class="title blue">I'm Rafael</h1>
           <p class="header__para">
-            I'm a <b class="blue"> Frontend Software Engineer</b> with a
-            strong passion for building web applications with great user
-            experiences.
+            I'm a <b class="blue"> Frontend Software Engineer</b> with a strong
+            passion for building web applications with great user experiences.
             <br />
-            Here's a bit more <b class="blue"> about me</b>.
+            Here's a bit more <b class="blue click" onclick="toggleModal()"> about me</b>.
           </p>
           <div class="social__list">
             <a href="#" target="_blank" class="social__link click">
@@ -77,7 +84,7 @@
           </div>
         </div>
       </header>
-      <button class="mail__btn click">
+      <button class="mail__btn click" onclick="toggleModal()">
         <i class="fa-solid fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
@@ -92,8 +99,10 @@
             Frontend Software Engineer.
           </h4>
           <p class="modal__para">
-            I'm a 19 year-old frontend software engineer with a strong passion
-            for developing websites with great user experiences.
+            I'm a 19 year-old
+            <b class="blue">frontend software engineer</b> with a strong passion
+            for developing websites with great
+            <b class="blue"> user experiences.</b>
             <br />
             Every day, I work on really complex technical challenges while
             learning from a team of some of the most skilled and experienced
@@ -106,6 +115,7 @@
                 src="./assets/HTML5_Badge.svg.png"
                 alt=""
               />
+              <span class="language__name">HTML</span>
             </figure>
             <figure class="modal__languague">
               <img
@@ -113,6 +123,7 @@
                 src="./assets/HTML5_Badge.svg.png"
                 alt=""
               />
+              <span class="language__name">HTML</span>
             </figure>
             <figure class="modal__languague">
               <img
@@ -120,6 +131,7 @@
                 src="./assets/HTML5_Badge.svg.png"
                 alt=""
               />
+              <span class="language__name">HTML</span>
             </figure>
             <figure class="modal__languague">
               <img
@@ -127,10 +139,42 @@
                 src="./assets/HTML5_Badge.svg.png"
                 alt=""
               />
+              <span class="language__name">HTML</span>
             </figure>
           </div>
         </div>
-        <div class="modal__half modal__contact">Let's have a chat!</div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">
+            Let's have a chat!
+          </h3>
+          <h3 class="modal__sub-title modal__sub-title--contact">
+            I'm currently open to new opportunities.
+          </h3>
+          <form id="contact__form" onsubmit="contact(event)">
+            <div class="form__item">
+              <label class="form__item--label">Name</label>
+              <input class="input" name="user_name" type="text"></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">E-mail</label>
+              <input class="input" name="user_email" type="email" required></input>
+            </div>
+            <div class="form__item">
+              <label class="form__item--label">Message</label>
+              <textarea class="input" name="message" type="text" required></textarea>
+            </div>
+            <button id="contact__submit" class="form__submit">
+              Send it my way
+            </button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+            Thanks for the message! <br> Looking foward to speaking with you soon.
+          </div>
+        </div>
       </div>
     </section>
     <section id="projects">
