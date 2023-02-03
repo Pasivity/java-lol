@@ -6,6 +6,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 li {
   list-style-type: none;
 }
@@ -25,6 +29,10 @@ button {
 
 body {
   background-color: rgb(245, 245, 245);
+}
+
+section {
+  transition: all 300ms ease;
 }
 
 input,
@@ -152,9 +160,11 @@ nav,
   border: none;
   background-color: #242424;
   color: white;
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   right: 40px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rbg(0, 0, 0, 0.28);
 }
 
 .scroll {
@@ -198,13 +208,30 @@ nav,
 .dark-theme .section__sub-title,
 .dark-theme .nav__link--anchor,
 .dark-theme .fa-adjust,
-.dark-theme .header__para
- {
+.dark-theme .header__para {
   color: white;
 }
 
-.dark-theme section{
- background-color: #242424;
+.dark-theme section {
+  background-color: #242424;
+}
+
+.dark-theme #personal-logo {
+  filter: none;
+}
+
+.dark-theme .scroll__icon {
+  border-color: white;
+}
+
+.dark-theme .scroll__icon:after,
+.dark-theme .link__hover-effect--black:after {
+  background-color: white;
+}
+
+.dark-theme .mail__btn {
+  background-color: white;
+  color: #242424;
 }
 
 /* 
@@ -315,7 +342,7 @@ nav {
   transition: visiblity 1s, z-index 1s, box-shadow 0.5s ease;
 }
 
-.modal--open .modal{
+.modal--open .modal {
   z-index: 60;
   box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
   visibility: visible;
@@ -563,6 +590,7 @@ nav {
 */
 
 footer {
+  position: relative;
   background-color: #242424;
   display: flex;
   padding: 6% 0;
@@ -590,4 +618,115 @@ footer {
 .footer__social--link,
 .footer__copyright {
   color: white;
+}
+
+/* 
+
+  SHAPES
+
+*/
+
+.shape {
+  position: fixed;
+}
+
+.shape--0 {
+  top: 15vw;
+  left: 5vw;
+}
+
+.shape--1 {
+  top: 15vw;
+  left: 50vw;
+}
+
+.shape--2 {
+  top: 15vw;
+  left: 80vw;
+}
+
+.shape--3 {
+  top: 50vw;
+  left: 5vw;
+}
+.shape--4 {
+  top: 50vw;
+  left: 50vw;
+}
+
+.shape--5 {
+  top: 50vw;
+  left: 80vw;
+}
+
+.shape--6 {
+  top: 80vw;
+  left: 5vw;
+}
+
+.shape--7 {
+  top: 80vw;
+  left: 50vw;
+}
+
+.shape--8 {
+  top: 80vw;
+  left: 80vw;
+}
+
+/* Small phones, tablets, large smart phones */
+@media (max-width: 768px) {
+  .title {
+    font-size: 80px;
+  }
+
+  .header__para {
+    font-size: 20px;
+  }
+
+  .modal {
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+    width: 100%;
+    flex-direction: column-reverse;
+    border-radius: 0;
+  }
+
+  .modal__half {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 52px;
+  }
+
+  .header__para {
+    font-size: 18px;
+  }
+
+  .nav__link:first-child {
+    display: none;
+  }
+  .project__description--para {
+    display: none;
+  }
+  .project__description {
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .project__description--sub-title {
+    margin-bottom: 8px;
+  }
+
+  .modal__half {
+    padding: 40px;
+  }
 }
